@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Root element CardView to provide elevation and rounded corners for aesthetic -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
+
+    <!-- LinearLayoutCompat for horizontal arrangement of child views -->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- Nested CardView for the image with fixed dimensions and centered alignment -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            android:layout_gravity="center">
+
+            <!-- ImageView for displaying the news image or icon -->
+            <ImageView
+                android:id="@+id/ivNews"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/finance_logo" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- RelativeLayout for flexible positioning of text elements and icons -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <!-- TextView for displaying the amount -->
+            <TextView
+                android:id="@+id/tvAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toStartOf="@+id/ivNext"
+                android:text="$10"
+                android:textColor="@color/app_color"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <!-- TextView for displaying the title -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvAmount"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toStartOf="@+id/ivNext"
+                android:gravity="start"
+                android:text="Title"
+                android:textColor="@color/app_color"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+            <!-- TextView for displaying the date -->
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_below="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="On Sunday, 4/1/2024"
+                android:layout_marginEnd="10dp"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/app_color"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:visibility="visible" />
+
+            <!-- Icon indicating a forward action or navigation to details -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp"
+                android:src="@drawable/baseline_arrow_forward_24" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.cardview.widget.CardView>

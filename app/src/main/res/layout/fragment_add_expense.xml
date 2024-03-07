@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Root ConstraintLayout for flexible UI design, matching the parent in both width and height -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".home.fragments.expense.AddExpenseFragment">
+
+    <!-- Include a reusable top bar layout -->
+    <include
+        android:id="@+id/rlTop"
+        layout="@layout/top_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ScrollView to accommodate content scrolling -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rlTop">
+
+        <!-- Nested ConstraintLayout for content -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- LinearLayoutCompat for vertical stacking of form elements -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- CardView for image or icon presentation -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    app:cardElevation="5dp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/ivImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/baseline_add_24" />
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- TextInputLayouts for title, amount, and details input -->
+                <!-- Material Design principles applied for enhanced UI/UX -->
+                <!-- Each input field is designed for specific content type (text, number, etc.) -->
+
+                <!-- MaterialButton for submitting the form -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:textColorHint="@color/app_color"
+                    app:boxStrokeColor="@color/app_color"
+                    android:layout_marginTop="20dp"
+                    app:hintTextColor="@color/app_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter expense title"
+                        android:textColor="@color/app_color"
+                        android:inputType="textEmailAddress"
+                        android:visibility="visible" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:textColorHint="@color/app_color"
+                    app:boxStrokeColor="@color/app_color"
+                    android:layout_marginTop="20dp"
+                    app:hintTextColor="@color/app_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etIncome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter expense amount"
+                        android:textColor="@color/app_color"
+                        android:inputType="numberDecimal"
+                        android:visibility="visible" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:textColorHint="@color/app_color"
+                    app:boxStrokeColor="@color/app_color"
+                    android:layout_marginTop="20dp"
+                    app:hintTextColor="@color/app_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter expense details"
+                        android:textColor="@color/app_color"
+                        android:inputType="text"
+                        android:visibility="visible" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- MaterialButton for submitting the form -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAdd"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:backgroundTint="@color/app_color"
+                    android:text="Add"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"/>
+                <!-- Hidden MaterialButton for potential delete functionality -->
+                <com.google.android.material.button.MaterialButton
+                    android:visibility="gone"
+                    android:id="@+id/btnDelete"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:backgroundTint="@color/app_color"
+                    android:text="Delete"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
